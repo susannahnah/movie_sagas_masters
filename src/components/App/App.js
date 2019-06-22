@@ -3,6 +3,8 @@ import './App.css';
 import { connect } from 'react-redux';
 import IndividualMovie from '../IndividualMovie/IndividualMovie.js';
 import Details from '../Details/Details.js';
+import Home from '../Home/Home.js';
+import { Route, HashRouter as Router } from 'react-router-dom';
 
 class App extends Component {
   
@@ -17,19 +19,16 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
+    
+      <Router>
       <div className="App">
         {/* {JSON.stringify(this.props.reduxState)} */}
-        <h3>Movie List</h3>
-        <ul>
-          {this.props.reduxState.moviesReducer.map(movie => 
-          <IndividualMovie movie={movie}/> 
-
-          )}
-        </ul>
+        
         {JSON.stringify(this.props.reduxState.individualMovieReducer)}
-
-        <Details />
+        <Route path='/' exact component={Home} />
+        <Route path='/details' component={Details} />
       </div>
+    </Router>
     );
   }
 }
