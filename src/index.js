@@ -32,7 +32,7 @@ function* fetchMoviesSaga(action) {
 const sagaMiddleware = createSagaMiddleware();
 
 // Used to store movies returned from the server
-const moviesReducer = (state = [], action) => {
+const moviesReducer = (state = [{title:''}], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
             return action.payload;

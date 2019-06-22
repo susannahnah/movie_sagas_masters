@@ -12,9 +12,8 @@ class IndividualMovie extends Component {
     render() {
         return (
             <li key={this.props.movie.id}>
-            {this.props.movie.title}
-            <br />
-            <img src={this.props.movie.poster} onClick={this.handleClick}/> 
+            <h2>{this.props.movie.title}</h2>
+            <img src={this.props.movie.poster} onClick={this.handleClick}/>
             <br />
             {this.props.movie.description}
             <br />

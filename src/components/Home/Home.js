@@ -11,7 +11,7 @@ class Home extends Component {
                 <h3>Movie List</h3>
                 <ul>
                     {this.props.reduxState.moviesReducer.map(movie =>
-                        <IndividualMovie movie={movie} history={this.props.history} />
+                        <IndividualMovie key={movie.id} movie={movie} history={this.props.history} />
 
                     )}
                 </ul>
