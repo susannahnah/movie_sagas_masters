@@ -42,3 +42,15 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+
+
+CREATE TABLE "movie_genres" (
+	"id" SERIAL PRIMARY KEY,
+	"movie_id" INTEGER REFERENCES "movies" NOT NULL, 
+	"genre_id" INTEGER REFERENCES "genres" NOT NULL
+	);
+	
+SELECT * FROM "movie_genres"
+FULL JOIN "movies"
+ON "movies"."id"="movie_genres"."movie_id";
