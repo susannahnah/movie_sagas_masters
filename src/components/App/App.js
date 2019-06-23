@@ -12,15 +12,12 @@ class App extends Component {
     this.props.dispatch({ type: 'FETCH_MOVIES' })
   };
 
-  getGenres = () => {
-    this.props.dispatch({ type: 'FETCH_GENRES' })
-  };
 
   componentDidMount() {
     this.getMovies()
   };
 
-  
+
 
   // Renders the entire app on the DOM
   render() {

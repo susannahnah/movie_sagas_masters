@@ -21,16 +21,10 @@ app.get('/movies', (req, res) => {
     })
 })
 
-app.get('/genres', (req, res) => {
-    const queryText = 'SELECT * FROM "genres"'; 
-    pool.query(queryText)
-    .then((result) => {
-        res.send(result.rows);         
-    })
-    .catch((error) => {
-    console.log('Error completely SELECT genres query', error)
-    res.sendStatus(500)
-    })
+app.get('/movie_genres', (req, res) => {
+    console.log(req.query);
+    res.sendStatus (200)
+    
 })
 
 /** ---------- START SERVER ---------- **/

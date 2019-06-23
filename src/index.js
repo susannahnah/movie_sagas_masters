@@ -21,6 +21,8 @@ function* rootSaga() {
 
 function* selectMovieSaga(action) {
     yield put({ type: 'SET_INDIVIDUAL_MOVIE', payload: action.payload.id})
+    yield axios.get(`/movie_genres?id=${action.payload.id}`)
+    // yield put({ type: ''})
 }
 
 function* fetchMoviesSaga(action) {
