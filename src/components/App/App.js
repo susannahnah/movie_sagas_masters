@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Details from '../Details/Details.js';
 import Home from '../Home/Home.js';
+import Edit from '../Edit/Edit.js';
 import { Route, HashRouter as Router } from 'react-router-dom';
 // import Edit from '../Edit/Edit.js';
 
@@ -29,6 +30,7 @@ class App extends Component {
         
         <Route path='/' exact component={Home} />
         <Route path='/details' component={Details} />
+        <Route path='/edit' component={Edit} />
       </div>
     </Router>
     );

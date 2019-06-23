@@ -5,7 +5,6 @@ class Details extends Component {
 
 
     render() {
-        // if (this.props.movieList[0].title !== '') {
         return(
             <>
             <h1>{this.props.reduxState.moviesReducer
@@ -30,9 +29,6 @@ class Details extends Component {
             {JSON.stringify(this.props.reduxState.genresReducer)}
             </>
         )
-        // }else {
-            // return <></>
-        // }
     }
 }
 
@@ -40,8 +36,6 @@ class Details extends Component {
 
 const mapStateToProps = reduxState => ({
     reduxState,
-    // movieList: this.props.reduxState.moviesReducer,
-    // movieID: this.props.reduxState.individualMovieReducer, 
 });
 
 export default connect(mapStateToProps)(Details);
