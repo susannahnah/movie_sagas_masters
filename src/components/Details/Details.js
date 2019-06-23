@@ -3,10 +3,20 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
+    handleBackClick = () => {
+        this.props.history.push('/')
+    };
+
+    handleEditClick = () => {
+        this.props.history.push('/edit')
+    };
 
     render() {
         return(
             <>
+            <button onClick={this.handleBackClick}>Back to Home</button>
+            <button onClick={this.handleEditClick}>Edit Movie</button> 
+
             <h1>{this.props.reduxState.moviesReducer
                 [this.props.reduxState.individualMovieReducer -1]
                 .title}
@@ -26,7 +36,6 @@ class Details extends Component {
             <br />
             <br />
             <br />
-            {JSON.stringify(this.props.reduxState.genresReducer)}
             </>
         )
     }
