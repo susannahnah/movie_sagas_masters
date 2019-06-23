@@ -10,7 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 
-
+//route for getting all movies
 app.get('/movies', (req, res) => {
     const queryText = 'SELECT * FROM "movies"'; 
     pool.query(queryText)
@@ -23,6 +23,7 @@ app.get('/movies', (req, res) => {
     })
 })
 
+//route for getting selected movie genres for specific movies
 app.get('/movie_genres', (req, res) => {
     pool.query(`SELECT "genres"."name", "movie_genres"."genre_id" from "genres"
     JOIN "movie_genres"
@@ -34,6 +35,21 @@ app.get('/movie_genres', (req, res) => {
     .catch((error) => {
         console.log('Error completing SELECT movie genres', error);
         res.sendStatus(500)  
+    });
+});
+
+
+//route for updating movie info on database
+app.put('/edit', (req, res) => {
+    pool.query(`UPDATE "movies"
+    SET "title"=$1, "description"=$2
+    WHERE "id"=$3;`, [req.body.title, req.body.description, req.body.id])
+    .then((response) => {
+        res.sendStatus(200)
+    })
+    .catch((error) => {
+        console.log('Error completing UPDATE of movies', error);
+        res.sendStatus(500)
     });
 });
 
