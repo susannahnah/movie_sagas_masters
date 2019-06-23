@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class IndividualMovie extends Component {
-
+class Edit extends Component {
+    state = {
+        title: '',
+        description: '',
+        
+    }
     
-    
-   
 }
 
 
