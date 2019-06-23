@@ -9,6 +9,7 @@ class Edit extends Component {
 
     }
 
+//input for title changes function
     handleTitleChange = (event) => {
         console.log('title changed')
         this.setState({
@@ -17,7 +18,7 @@ class Edit extends Component {
         })
     };
 
-
+//input for description changes function
     handleDescriptionChange = (event) => {
         console.log('description changed')
         this.setState({
@@ -26,18 +27,18 @@ class Edit extends Component {
         })
     };
 
-
+//cancel edit function
     cancelEditButton = () => {
         this.props.history.push('/details')
     };
 
     
-
+//submit edit function
     submitNewEdits = (event) => {
         event.preventDefault();
-        this.props.dispatch({ type: 'EDIT_MOVIE', payload: {...this.state,id:this.props.reduxState.individualMovieReducer}})
+        this.props.dispatch({ type: 'EDIT_MOVIE', payload: {...this.state, id:this.props.reduxState.individualMovieReducer}})
         this.props.history.push('/details')
-    }
+    };
 
 
     render() {
