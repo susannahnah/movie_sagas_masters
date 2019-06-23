@@ -15,7 +15,12 @@ import { put, takeEvery } from "redux-saga/effects"
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMoviesSaga);
-    yield takeEvery('FETCH_GENRES', fetchGenresSaga)
+    yield takeEvery('FETCH_GENRES', fetchGenresSaga);
+    yield takeEvery('SELECT_MOVIE', selectMovieSaga);
+}
+
+function* selectMovieSaga(action) {
+    yield put({ type: 'SET_INDIVIDUAL_MOVIE', payload: action.payload.id})
 }
 
 function* fetchMoviesSaga(action) {

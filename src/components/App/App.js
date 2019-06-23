@@ -20,6 +20,7 @@ class App extends Component {
     this.getMovies()
   };
 
+  
 
   // Renders the entire app on the DOM
   render() {
