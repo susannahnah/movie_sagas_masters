@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Details from '../Details/Details.js';
 import Home from '../Home/Home.js';
 import { Route, HashRouter as Router } from 'react-router-dom';
+// import Edit from '../Edit/Edit.js';
 
 class App extends Component {
   
@@ -11,9 +12,14 @@ class App extends Component {
     this.props.dispatch({ type: 'FETCH_MOVIES' })
   };
 
+  getGenres = () => {
+    this.props.dispatch({ type: 'FETCH_GENRES' })
+  };
+
   componentDidMount() {
     this.getMovies()
   };
+
 
   // Renders the entire app on the DOM
   render() {
