@@ -15,14 +15,16 @@ import { put, takeEvery } from "redux-saga/effects"
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMoviesSaga);
-    yield takeEvery('FETCH_GENRES', fetchGenresSaga);
+    // yield takeEvery('FETCH_GENRES', fetchGenresSaga);
     yield takeEvery('SELECT_MOVIE', selectMovieSaga);
 }
 
 function* selectMovieSaga(action) {
     yield put({ type: 'SET_INDIVIDUAL_MOVIE', payload: action.payload.id})
-    yield axios.get(`/movie_genres?id=${action.payload.id}`)
-    // yield put({ type: ''})
+    const movieGenre = yield axios.get(`/movie_genres?id=${action.payload.id}`)
+    yield put({ type: 'SET_TAGS', payload: movieGenre.data })
+    console.log('end of selectMovieSaga');
+    
 }
 
 function* fetchMoviesSaga(action) {
@@ -35,15 +37,6 @@ function* fetchMoviesSaga(action) {
     }
 }
 
-function* fetchGenresSaga(action) {
-    try {
-        const genreResponse = yield axios.get('/genres')
-        yield put({ type: 'SET_TAGS', payload: genreResponse.data });
-        console.log('end of fetchGenresSaga')
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

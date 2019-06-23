@@ -27,6 +27,7 @@ class Details extends Component {
             <br />
             <br />
             <br />
+            {JSON.stringify(this.props.reduxState.genresReducer)}
             </>
         )
         // }else {
