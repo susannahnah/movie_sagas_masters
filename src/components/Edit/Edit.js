@@ -26,12 +26,17 @@ class Edit extends Component {
         })
     };
 
+    submitNewEdits = (event) => {
+        event.preventDefault();
+        this.props.dispatch({ type: 'EDIT_MOVIE', payload: {...this.state,id:this.props.reduxState.individualMovieReducer}})
+    }
+
 
     render() {
         return (
             <div>
                 <h2>Edit Movie Here</h2>
-                {/* <form onSubmit={this} */}
+                <form onSubmit={this.submit}>
                     <input placeholder="Title" type='text' value={this.state.title} onChange={this.handleTitleChange} />
                     <br />
                     <br />
@@ -39,6 +44,7 @@ class Edit extends Component {
                     <br />
                     <br />
                     <input type='Submit' value='New Movie Edits' />
+                </form>
              </div>
         )
     }

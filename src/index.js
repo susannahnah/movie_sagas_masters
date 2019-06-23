@@ -17,6 +17,7 @@ import { put, takeEvery } from "redux-saga/effects"
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMoviesSaga);
     yield takeEvery('SELECT_MOVIE', selectMovieSaga);
+    yield takeEvery('EDIT_MOVIE', editMovieSaga);
 }
 
 //get specific movie info
@@ -26,6 +27,11 @@ function* selectMovieSaga(action) {
     yield put({ type: 'SET_TAGS', payload: movieGenre.data })
     console.log('end of selectMovieSaga');
     
+}
+
+function* editMovieSaga(action) {
+    yield axios.put(`/edit`, action.payload)
+    yield put ({ type: 'FETCH_MOVIES'})
 }
 
 //get all movies
