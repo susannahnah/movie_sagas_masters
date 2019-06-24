@@ -77,6 +77,15 @@ As one of your last projects, it's possible you will be sharing this with employ
 - [ ] Comment your code.
 - [ ] Update this README to include a description of the project in your own words.
 
+
+***UPDATED README***
+This project was a test to see if I could complete a Project.  It is essentially a stripped-down IMDB, but a Fischer-Price "My First IMDB"-esque site.  I probably would not
+have picked the movies in it, but c'est la vie.  
+I wish we had been given more assistance with MUI vs. an hour one day.  I plan to continue to work on this, but I am glad I at least finished the base goals **100%**
+
+
+
+
 ## Stretch Goals
 
 - [ ] Display the current values in the input (title) and textarea (description) on the Edit Page

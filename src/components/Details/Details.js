@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 class Details extends Component {
 
@@ -14,25 +18,31 @@ class Details extends Component {
     render() {
         return (
             <>
-                <button onClick={this.handleBackClick}>Back to Home</button>
-                <button onClick={this.handleEditClick}>Edit Movie</button>
-
+            <AppBar position="static">
+                <Toolbar>
+                <Button variant="contained" color="primary" onClick={this.handleBackClick}>Back to Home</Button>
+                <Button variant="contained" color="primary" onClick={this.handleEditClick}>Edit Movie</Button>
+                </Toolbar>
+            </AppBar>
+            <Grid container spacing={3}>
+            <Grid item xs={12}>
                 <h1>{this.props.reduxState.moviesReducer
                 [this.props.reduxState.individualMovieReducer - 1]
                     .title}
                 </h1>
-
+            </Grid>
+            <Grid container justify="center" item xs={6}>
                 <img alt={this.props.reduxState.moviesReducer
                 [this.props.reduxState.individualMovieReducer - 1]
                     .title} src={this.props.reduxState.moviesReducer
                     [this.props.reduxState.individualMovieReducer - 1]
                         .poster} onClick={this.handleClick} />
-                <br />
-                <br />
-                <br />
+            </Grid>
+            <Grid item xs={3}>
                 {this.props.reduxState.moviesReducer
                 [this.props.reduxState.individualMovieReducer - 1]
                     .description}
+            </Grid>
                 <br />
                 <br />
                 <br />
@@ -41,6 +51,9 @@ class Details extends Component {
                     return <li key={genre.genre_id}>{genre.name}</li>
                 })}
                 </ul>
+            </Grid>
+            
+               
             </>
         )
     }
