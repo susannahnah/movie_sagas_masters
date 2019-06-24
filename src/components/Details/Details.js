@@ -20,8 +20,9 @@ class Details extends Component {
             <>
             <AppBar position="static">
                 <Toolbar>
-                <Button variant="contained" color="primary" onClick={this.handleBackClick}>Back to Home</Button>
-                <Button variant="contained" color="primary" onClick={this.handleEditClick}>Edit Movie</Button>
+                <Button variant="contained" color="inherent" padding="8dp" onClick={this.handleBackClick}>Back to Home</Button>
+
+                <Button variant="contained" color="inherent" onClick={this.handleEditClick}>Edit Movie</Button>
                 </Toolbar>
             </AppBar>
             <Grid container spacing={3}>
